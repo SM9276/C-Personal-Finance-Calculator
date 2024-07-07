@@ -7,19 +7,28 @@
 ************************************************************************/
 int main(int argc, char* argv[])
 {
-   /*------------------------------------------------------------------------
-   
-     ------------------------------------------------------------------------*/
-	float checkings  = 0.0;
- 	float emergency  = 0.0;
-	float invested   = 0.0;
-	float TIRA       = 0.0;
-	float rent    =  650.0;
-	float needsTotal = 0.0;
-	float wantsTotal = 0.0;
-	float CC payment = 0.0;
+/*----------------------------------------------------------------------
+ *	The Wallet[]! This is what holds all our fixed Qn number system.
+ *
+ *
+ * -------------------------------------------------------------------*/  
+
+									
+    static int Checking     =  0;
+ 	static int Emergency    =  1;
+	static int Invested     =  2;
+	static int T-IRA        =  3;
+	static int CC payment   =  4;
+	static int NeedsTotal   =  5;
+	static int WantsTotal   =  6;
+	static int RENT/Morgage =  7;	
+	
 	char  input; 
 	bool end = false;
+   /*------------------------------------------------------------------------
+  	wallet.txt will be read and set the diffrent amounts in the wallet array.
+	if no file found then it will create and initilize the wallet array.
+     ------------------------------------------------------------------------*/
 	struct need {
 		char name[255];
 		float cost;
@@ -33,10 +42,10 @@ int main(int argc, char* argv[])
 	}	
 	while(end){
 		printf("Please enter a letter.\n");
-		scanf("%s",input)
+		scanf("%s",input);
 		switch (input) {
         		case 'c':
-            			printf("Case 1 is Matched.");
+            			printf("Your Checking is at :%d\n", checkings);
             		break;
 
         		case 'e':
