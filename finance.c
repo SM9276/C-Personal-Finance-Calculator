@@ -14,22 +14,22 @@ int main(int argc, char* argv[])
  *	The Wallet[]! This is what holds all the  values of the accounts.
  *      Below you can see which index in the wallet array
  * --------------------------------------------------------------------------*/  
-									
-        static int Checking     =  0;  // Standard Checking account balance
- 	static int Emergency    =  1;  // Emergency Fund Balance
-	static int Invested     =  2;  // Investment Balance
-	static int T-IRA        =  3;  // Traditonal IRA amount  
-	static int IRA-Year     =  4;  // How much has been invested into IRA this year
-	static int CreditCard   =  5;  // Credit Card Balance 
-	static int NeedsTotal   =  6;  // The total of all the cost of your essential needs
-	static int WantsTotal   =  7;  // The total of all the cost of your non-essential wants
-	static int RENT/Morgage =  8;  // The cost of your living situation  
-	static int Wage         =  9;  // Extra income after expensises. 
+    static int ARRAY_SIZE   =  64; // The Max size of the double array
+
+    static int CHECKING     =  0;  // Standard Checking account balance
+ 	static int EMERGENCY    =  1;  // Emergency Fund Balance
+	static int INVESTED     =  2;  // Investment Balance
+	static int T_IRA        =  3;  // Traditonal IRA amount  
+	static int IRA_YEAR     =  4;  // How much has been invested into IRA this year
+	static int CREDITCARD   =  5;  // Credit Card Balance 
+	static int NEEDSTOTAL   =  6;  // The total of all the cost of your essential needs
+	static int WANTSTOTAL   =  7;  // The total of all the cost of your non-essential wants
+	static int RENT_MORGAGE =  8;  // The cost of your living situation  
+	static int WAGE         =  9;  // Extra income after expensises. 
 		
-	double Wallet[]*;
-	Wallet = malloc(sizeof(double) * 64);
+
 	
-	static int IRA-CAP = 7000;
+	static int IRA_CAP = 7000;
 	char KeyboardInput; 
 	bool ProgramEnd = false;
    /*------------------------------------------------------------------------
