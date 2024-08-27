@@ -81,28 +81,36 @@ int main(int argc, char* argv[])
                  *
                  ************************************************************/
         		case 'i':
-            	printf("Enter this Month Income ammount\n");
-				double UserIncome;
-				scanf("%lf", &UserIncome);
-				Wallet[WAGE] = UserIncome - Wallet[RENT_MORGAGE] - Wallet[NEEDSTOTAL] ; //Wage is the amount of extra income that is not spent on rent and essentials.
+            	    printf("Enter this Month Income ammount\n");
+				    double UserIncome;
+				    scanf("%lf", &UserIncome);
+				    Wallet[WAGE] = UserIncome - Wallet[RENT_MORGAGE] - Wallet[NEEDSTOTAL] ; //Wage is the amount of extra income that is not spent on rent and essentials.
 				
-				if(emergencyFull == true){
-					if(iraFull == true){
-						Wallet[INVESTED] += Wallet[WAGE] * .8;
-						Wallet[WANTSTOTAL] += Wallet[WAGE] * .2;	
-					}
-					else{	
-						double extra = 0.0;
-						if((Wallet[IRA_YEAR] += Wallet[WAGE] * .5) > IRA_CAP){
-							extra = Wallet[IRA_YEAR] - IRA_CAP;
-							Wallet[IRA_YEAR] = IRA_CAP;
-							Wallet[CHECKING] += extra;
-						    }
-						Wallet[INVESTED] += Wallet[WAGE] * .4;
-						Wallet[WANTSTOTAL] += Wallet[WAGE] * .1;
-					}
+				    if(emergencyFull == true){
+				    	if(iraFull == true){
+                            Wallet[INVESTED] += Wallet[WAGE] * .8;
+                            Wallet[WANTSTOTAL] += Wallet[WAGE] * .2;	
+                        }
+					    else{	
+						    double extra = 0.0;
+                            if((Wallet[IRA_YEAR] += (Wallet[WAGE] * 0.5)) > IRA_CAP){
+                                extra = Wallet[IRA_YEAR] - IRA_CAP;
+                                Wallet[IRA_YEAR] = IRA_CAP;
+                                Wallet[CHECKING] += extra;
+                            }
+                            Wallet[INVESTED] += Wallet[WAGE] * .4;
+						    Wallet[WANTSTOTAL] += Wallet[WAGE] * .1;
+					    }
 				    
-                }
+                    }
+                    else{
+                        Wallet[EMERGENCY] += Wallet[WAGE] *.8;
+                        Wallet[WANTSTOTAL] += Wallet[WAGE] *.2;
+                    
+                        if(Wallet[EMERGENCY] > (( Wallet[RENT_MORGAGE] + Wallet[NEEDSTOTAL]) * 6)){
+                            emergencyFull = true;
+                        }
+                    }
            		break;
 
         		case 'e':
